@@ -17,11 +17,13 @@
 
     <?php
     if (isset($_POST['nome'])) {
-        //Código aqui (criar cookie)
+        $nome = $_POST['nome'];
+        setcookie("nome", $nome, time() + 30); 
+        echo "<p>Valor salvo no cookie: <b>$nome</b></p>";
     }
 
     if (isset($_COOKIE['nome'])) {
-        //Código aqui (mostrar cookie)
+        echo "<p>Olá de novo, <b>" . $_COOKIE['nome'] . "</b>!</p>";
     }
     ?>
 </body>

@@ -18,13 +18,18 @@
     </form>
 
     <?php
+    session_start();
     if (isset($_POST['tema'])) {
-        //Código aqui (criar cookie de tema)
+        $corFundo = $_POST['tema'];
+        setcookie("tema", $corFundo, time() + 30); 
+        echo "<p>Preferência <b>$corFundo</b> registrada!</p>";
+        echo "<meta http-equiv='refresh' content='0'>"; // atualiza a página
     }
 
 	if (isset($_COOKIE['tema'])) {
-        //Código aqui (criar cookie de tema)
+        echo "<p>A configuração escolhida é: <b>" . $_COOKIE['tema'] . "</b></p>";
 }
+    session_destroy(); // apaga todos os dados da sessão 
     ?>
 </body>
 </html>

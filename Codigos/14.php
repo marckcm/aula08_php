@@ -16,7 +16,7 @@
 
     // Logout
     if (isset($_POST['logout'])) {
-        //Código aqui (Destruir sessão)
+        session_destroy();
         echo "<p>Sessão encerrada.</p>";
         echo "<meta http-equiv='refresh' content='0'>";
     }
@@ -27,7 +27,7 @@
         $senha = $_POST['senha'];
 
         if ($usuario == "admin" && $senha == "123") {
-            //Código aqui (DICA ABAIXO)
+            $_SESSION['usuario'] = $usuario;
             echo "<meta http-equiv='refresh' content='0'>";
         } else {
             echo "<p style='color:red;'>Usuário ou senha incorretos!</p>";
@@ -46,6 +46,7 @@
                 <input type="submit" value="Entrar">
               </form>';
     }
+
     ?>
 </body>
 </html>

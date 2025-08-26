@@ -13,9 +13,13 @@
     <?php
     session_start();
 
-    //Código aqui (incrementar contador)
+    if (!isset($_SESSION['visitas'])) {
+        $_SESSION['visitas'] = 1;
+    } else {
+        $_SESSION['visitas']++;
+    }
 
-    echo "<p>Você visitou esta página <b>" . $_SESSION['contador'] . "</b> vezes nesta sessão.</p>";
+    echo "<p>Você visitou esta página <b>" . $_SESSION['visitas'] . "</b> vezes nesta sessão.</p>";
     ?>
 </body>
 </html>
